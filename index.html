@@ -8,18 +8,67 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    
+    <style>
+      .arrow {
+        font-size: 6em;
+        color: rgba(250, 220, 50, 1);
+        margin-top: 220px;
+      }
+      .nav-left {
+        text-align: left;
+      }
+      .nav-right {
+        text-align: right;
+      }
+      .content {
+        height: 500px;
+        background-color: rgba(0, 0, 0, 0.02);
+      }
+      
+      /* props to http://css-tricks.com/centering-in-the-unknown/ */
+      /* This parent can be any width and height */
+      .block {
+        text-align: center;
+      }
+      /* The ghost, nudged to maintain perfect centering */
+      .block:before {
+        content: '';
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        margin-right: -0.25em; /* Adjusts for spacing */
+      }
+      /* The element to be centered, can
+         also be of any width and height */ 
+      .centered {
+        display: inline-block;
+        vertical-align: middle;
+        width: 300px;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
       <div class="jumbotron">
-        <h1>Large header!</h1>
-        
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus.</p>
+        <p>The buttons toggle visibility of the nav icons acompanying the box below.</p>
         
         <p>
           <button type="button" id="appear-btn" class="btn btn-primary btn-lg">Appear</button>
           <button type="button" id="disappear-btn" class="btn btn-success btn-lg">Disappear</button>
         </p>
+      </div>
+    </div>
+    
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 nav-left">
+          <span class="glyphicon glyphicon-circle-arrow-left arrow"></span>
+        </div>
+        <div class="col-md-8 content"></div>
+        <div class="col-md-2 nav-right">
+          <span class="glyphicon glyphicon-circle-arrow-right arrow"></span>
+        </div>
       </div>
     </div>
 
