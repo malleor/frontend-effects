@@ -11,40 +11,21 @@
     
     <style>
       .arrow {
-        font-size: 6em;
+        font-size: 100px;
         color: rgba(250, 220, 50, 1);
         margin-top: 220px;
       }
       .nav-left {
         text-align: left;
+        position: relative;
       }
       .nav-right {
         text-align: right;
+        position: relative;
       }
       .content {
         height: 500px;
         background-color: rgba(250, 220, 50, 0.1);
-      }
-      
-      /* props to http://css-tricks.com/centering-in-the-unknown/ */
-      /* This parent can be any width and height */
-      .block {
-        text-align: center;
-      }
-      /* The ghost, nudged to maintain perfect centering */
-      .block:before {
-        content: '';
-        display: inline-block;
-        height: 100%;
-        vertical-align: middle;
-        margin-right: -0.25em; /* Adjusts for spacing */
-      }
-      /* The element to be centered, can
-         also be of any width and height */ 
-      .centered {
-        display: inline-block;
-        vertical-align: middle;
-        width: 300px;
       }
     </style>
   </head>
@@ -81,17 +62,43 @@
       $(document).ready(function() {
         
         var hideArrows = function() {
-          $('.arrow').hide();
+          var HIDE_TIME   = 200,
+              HIDE_EASING = 'swing';
+          $('.nav-left .arrow').stop().animate({
+            opacity:      '0.0',
+            left:         '-=100px',
+            top:          '-=50px',
+            'font-size':  '+=100px'
+          }, HIDE_TIME, HIDE_EASING);
+          $('.nav-right .arrow').stop().animate({
+            opacity:      '0.0',
+            left:         '+=100px',
+            top:          '-=50px',
+            'font-size':  '+=100px'
+          }, HIDE_TIME, HIDE_EASING);
         };
         
         var showArrows = function() {
-          $('.arrow').show();
+          var SHOW_TIME   = 200,
+              SHOW_EASING = 'swing';
+          $('.nav-left .arrow').stop().animate({
+            opacity:      '1.0',
+            left:         '+=100px',
+            top:          '+=50px',
+            'font-size':  '-=100px'
+          }, SHOW_TIME, SHOW_EASING);
+          $('.nav-right .arrow').stop().animate({
+            opacity:      '1.0',
+            left:         '-=100px',
+            top:          '+=50px',
+            'font-size':  '-=100px'
+          }, SHOW_TIME, SHOW_EASING);
         };
         
         $('#disappear-btn').click(hideArrows);
         $('#appear-btn').click(showArrows);
         
-        hideArrows();
+        //hideArrows();
       });
     </script>
   </body>
