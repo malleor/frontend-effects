@@ -61,9 +61,15 @@
     <script>
       $(document).ready(function() {
         
+        var shown = true;
+        
         var hideArrows = function() {
+          if(!shown) return;
+          shown = false;
+          
           var HIDE_TIME   = 200,
               HIDE_EASING = 'swing';
+          
           $('.nav-left .arrow').stop().animate({
             opacity:      '0.0',
             left:         '-=100px',
@@ -79,8 +85,12 @@
         };
         
         var showArrows = function() {
+          if(shown) return;
+          shown = true;
+          
           var SHOW_TIME   = 200,
               SHOW_EASING = 'swing';
+          
           $('.nav-left .arrow').stop().animate({
             opacity:      '1.0',
             left:         '+=100px',
