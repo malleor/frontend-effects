@@ -23,7 +23,7 @@
       }
       .content {
         height: 500px;
-        background-color: rgba(0, 0, 0, 0.02);
+        background-color: rgba(250, 220, 50, 0.1);
       }
       
       /* props to http://css-tricks.com/centering-in-the-unknown/ */
@@ -76,5 +76,23 @@
     <script src="js/jquery-2.1.0.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    
+    <script>
+      $(document).ready(function() {
+        
+        var hideArrows = function() {
+          $('.arrow').hide();
+        };
+        
+        var showArrows = function() {
+          $('.arrow').show();
+        };
+        
+        $('#disappear-btn').click(hideArrows);
+        $('#appear-btn').click(showArrows);
+        
+        hideArrows();
+      });
+    </script>
   </body>
 </html>
